@@ -1,0 +1,37 @@
+<MyBoxLayout>:
+    canvas.before:
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [10,]
+            source: ''
+            color: 0.2, 0.2, 0.2, 1
+
+    Label:
+        text: 'Enter keywords to search (separated by commas):'
+        size_hint_y: None
+        height: 30
+        color: 1, 1, 1, 1
+
+    TextInput:
+        id: keyword_input
+        multiline: False
+        size_hint_y: None
+        height: 40
+        hint_text: 'Keywords'
+
+    Button:
+        text: 'Search'
+        size_hint_y: None
+        height: 40
+        on_press: root.search_keywords(self)
+
+    Label:
+        id: result_label
+        text: ''
+        size_hint_y: None
+        height: self.texture_size[1] if self.text else 0
+        color: 1, 1, 1, 1
+        text_size: self.width, None
+        halign: 'left'
+        valign: 'top'
